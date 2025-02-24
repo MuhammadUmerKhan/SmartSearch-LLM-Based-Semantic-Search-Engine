@@ -76,7 +76,7 @@ This project is licensed under **MIT License**. 📝
 
 ## 📬 Contact
 - 📧 Email: muhammadumerk546@gmail.com
-- 🔗 GitHub: [Your GitHub Profile](https://github.com/MuhammadUmerKhan?tab=repositories)
+- 🔗 GitHub: [GitHub Profile](https://github.com/MuhammadUmerKhan?tab=repositories)
 
 ---
 🔥 *This project is a step toward building a more intelligent and real-time AI search assistant!*
