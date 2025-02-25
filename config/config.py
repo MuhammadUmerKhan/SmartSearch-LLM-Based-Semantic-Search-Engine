@@ -18,7 +18,7 @@ except:
 
 # Constants
 CHUNK_SIZE = 1000
-CHUNK_OVERLAP = 50
+CHUNK_OVERLAP = 100
 TOP_K_RESULTS = 3
 
 logging.info("✅ Configuration Loaded Successfully.")
