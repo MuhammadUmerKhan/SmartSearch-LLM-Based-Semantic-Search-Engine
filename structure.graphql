@@ -1,0 +1,16 @@
+AI_Search_Engine/
+│── app.py                  # 🎨 Streamlit UI for user interaction
+│
+│── config/
+│   ├── config.py           # ⚙️ API Keys & Global Configurations (✅ Already exists)
+│── search/
+│   ├── google_search.py    # 🔍 Google Search API Handling (✅ Improved Logging)
+│   ├── scraper.py          # 📄 Web Scraping & Article Extraction (✅ Improved Logging)
+│── vector_store/
+│   ├── vector_store.py     # 📚 FAISS Vector Database Handling (✅ Improved Logging)
+│── llm/
+│   ├── llm_handler.py      # 🤖 LLM Query Processing (✅ Improved Logging)
+│── utils/
+│   ├── error_handler.py    # 🛠️ Error Handling & Logging (✅ New - for centralized logging)
+│── requirements.txt        # 📦 Dependencies
+│── README.md               # 📖 Project Documentation
