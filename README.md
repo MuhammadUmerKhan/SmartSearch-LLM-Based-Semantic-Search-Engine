@@ -136,7 +136,7 @@ streamlit run app.py
 
 ---
 ## 🔴 Live Demo:
-- ![Web App](https://ai-powered-search-engine-using-llm.streamlit.app/)
+- [Web App](https://ai-powered-search-engine-using-llm.streamlit.app/)
 ---
 
 ## 👨‍💻 **Author & Contact**
