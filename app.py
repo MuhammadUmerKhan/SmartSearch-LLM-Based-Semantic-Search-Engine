@@ -51,6 +51,14 @@ elif page == "🔍 Search Engine":
             }
         </style>
     """, unsafe_allow_html=True)
+    st.markdown("### 💡 Example Queries:")
+    st.markdown("""
+    - 🔍 What are the latest AI trends in 2025?  
+    - 🚀 How does Quantum Computing impact AI?  
+    - 🏆 Who are the top football players in 2025?  
+    - 🛠 Best AI tools for developers in 2025?  
+    - 🛒 How AI is transforming e-commerce?  
+    """)
 
     # ⌨️ Real-Time Search Input (Press Enter to Search)
     query = st.text_input("🔎 Ask Anything:", key="search_input", placeholder="Enter your query")
