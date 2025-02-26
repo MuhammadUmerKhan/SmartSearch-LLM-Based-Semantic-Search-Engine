@@ -3,6 +3,8 @@
 ## 🚀 Introduction
 The **AI-Powered Search Engine** is a web-based application that combines **Google Search API**, **web scraping**, **FAISS vector database**, and **LLMs** to fetch, extract, and summarize real-time search results. This tool is designed to **enhance information retrieval** by providing structured, AI-generated responses.
 
+![](https://media.licdn.com/dms/image/v2/D5612AQEmQPzwyDhgbw/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1716132344917?e=2147483647&v=beta&t=vUIJxi_t4HCoQxV8HqEDWm3U7Uzz40Kp4YFCB-C5RuU)
+---
 ### 🔹 **Key Features**
 - **🔍 Real-time Web Search**: Fetches search results via **Google Custom Search API**.
 - **📄 Article Extraction**: Scrapes full-text articles from links.
