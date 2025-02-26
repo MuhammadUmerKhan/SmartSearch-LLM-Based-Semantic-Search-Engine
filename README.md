@@ -13,17 +13,21 @@ The **AI-Powered Search Engine** is a web-based application that combines **Goog
 ---
 
 ## 📂 **Project Structure & File Explanations**
-
 ```
 📦 AI-Powered-Search-Engine
-│-- config.py           # Configuration file for API keys & parameters
-│-- google_search.py    # Fetches top search results using Google API
-│-- scraper.py          # Extracts full text from article links
-│-- vector_store.py     # Creates and manages FAISS vector database
-│-- llm_handler.py      # Handles LLM queries and generates responses
-│-- app.py              # Main Streamlit app for UI interaction
-│-- home.py             # Displays home page in the Streamlit app
-│-- .env                # Stores API keys (Not shared for security)
+├── 📂 config
+│   ├── config.py       # Stores API keys and constants
+├── 📂 search
+│   ├── google_search.py  # Fetches search results from Google API
+│   ├── scraper.py       # Extracts full text from articles
+├── 📂 vector_db
+│   ├── vector_store.py  # Handles FAISS vector database
+├── 📂 llm
+│   ├── llm_handler.py   # Processes user query with LLaMA 3.3-70B
+├── app.py              # Streamlit web app
+├── home.py             # Homepage UI setup
+├── requirements.txt    # Dependencies
+├── .env                # Stores API keys (Not shared for security)
 ```
 
 ### **📜 File Explanations**
