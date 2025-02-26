@@ -1,10 +1,12 @@
 from googleapiclient.discovery import build
 from config.config import GOOGLE_SEARCH_KEY, SEARCH_ENGINE_ID, TOP_K_RESULTS
 import logging
+import functools
 
 # Logging configuration
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 
+@functools.lru_cache(maxsize=100)  # Cache up to 100 queries
 def google_custom_search(query):
     """
     Perform Google Custom Search and return top results.

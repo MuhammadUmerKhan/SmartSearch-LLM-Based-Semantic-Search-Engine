@@ -20,7 +20,7 @@ def extract_full_article(url):
         article.download()
         article.parse()
         logging.info("✅ Successfully extracted article.")
-        return article.text[:10000]  # Limit content length
+        return article.text[:5000]  # Limit content length
 
     except Exception as e:
         logging.error(f"❌ Error extracting article: {str(e)}")
