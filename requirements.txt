@@ -4,3 +4,4 @@ newspaper3k
 google-api-python-client 
 lxml-html-clean 
 langchain_groq
+python-dotenv
