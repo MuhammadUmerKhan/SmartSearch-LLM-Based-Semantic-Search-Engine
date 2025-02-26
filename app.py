@@ -53,7 +53,7 @@ elif page == "🔍 Search Engine":
     """, unsafe_allow_html=True)
 
     # ⌨️ Real-Time Search Input (Press Enter to Search)
-    query = st.text_input("🔎 Ask Anything:", key="search_input")
+    query = st.text_input("🔎 Ask Anything:", key="search_input", placeholder="Enter your search")
 
     # ✅ Perform search automatically when user presses Enter
     if query:
