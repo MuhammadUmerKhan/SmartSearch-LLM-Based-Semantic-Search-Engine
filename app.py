@@ -10,14 +10,27 @@ st.set_page_config(page_title="AI Search Engine", page_icon="🔍", layout="wide
 
 # 🏠 Sidebar Navigation
 st.sidebar.title("🔍 AI Search Engine")
-page = st.sidebar.radio("📌 Select Page", ["🏠 Home", "🔎 Search Engine"])
+page = st.sidebar.radio("📌 Select Page", ["🏠 Home", "🔍 Search Engine"])
 
 # 🎯 Load Home Page
 if page == "🏠 Home":
     home.show_home()
 
-# 🔎 Load Search Engine
-elif page == "🔎 Search Engine":
+# 🔍 Load Search Engine
+elif page == "🔍 Search Engine":
+    # 🎯 **Navigation Instructions**
+    st.sidebar.markdown("## 🕵 Search Page")
+    st.sidebar.markdown("""
+    ### 💬 How to Use:
+    1️⃣ **Enter Your Query** in the search box.  
+    2️⃣ **Press Enter** to initiate the AI-powered search.  
+    3️⃣ **Wait a few seconds** as the system fetches and processes results.  
+    4️⃣ View **AI-generated responses** and **source links** for more details.  
+    5️⃣ Click on any **source link** to read the full article.  
+
+    📌 **Tip:** Be specific with your query for more accurate results!  
+    """)
+
     # ✅ Title with gradient effect
     st.markdown("""
         <h1 style="text-align: center;">
