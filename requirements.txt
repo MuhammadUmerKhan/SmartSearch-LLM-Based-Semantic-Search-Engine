@@ -6,3 +6,4 @@ lxml-html-clean
 langchain_groq
 python-dotenv
 langchain-community
+sentence-transformers
