@@ -133,6 +133,9 @@ streamlit run app.py
 🔜 Implement **document upload** for personalized search.  
 
 ---
+## 🔴 Live Demo:
+- ![Web App](https://ai-powered-search-engine-using-llm.streamlit.app/)
+---
 
 ## 👨‍💻 **Author & Contact**
 💡 **Developed by:** [Muhammad Umer Khan](https://www.linkedin.com/in/muhammad-umer-khan-61729b260/)  
