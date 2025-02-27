@@ -74,7 +74,7 @@ The **AI-Powered Search Engine** is a web-based application that combines **Goog
   - **List of sources with clickable links**
 
 ---
-
+## **🤖 Supported LLMs**
 | Model | API Name |
 |--------|-------------------------------|
 | Llama | `llama-3.3-70b-versatile` |
