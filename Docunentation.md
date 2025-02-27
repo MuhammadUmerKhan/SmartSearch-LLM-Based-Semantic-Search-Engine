@@ -11,6 +11,7 @@ This project is an **AI-powered search engine** that integrates:
 ---
 
 ## **🗂️ Project Structure**
+```
 📦 AI-Powered-Search-Engine
 ├── 📂 config
 │   ├── config.py       # Stores API keys and constants
