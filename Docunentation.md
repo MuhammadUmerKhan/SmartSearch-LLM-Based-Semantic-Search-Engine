@@ -11,21 +11,20 @@ This project is an **AI-powered search engine** that integrates:
 ---
 
 ## **🗂️ Project Structure**
-```
-📂 AI-Powered-Search-Engine/
-│── 📄 app.py             # Main Streamlit app
-│── 📄 home.py            # Home page UI
-│── 📄 google_search.py   # Google Search API integration
-│── 📄 scraper.py         # Web scraping for full-text extraction
-│── 📄 vector_store.py    # FAISS vector database for search
-│── 📄 llm_handler.py     # Queries LLM for AI responses
-│── 📄 config.py          # Configuration and API keys
-│── 📄 requirements.txt   # Required Python packages
-│── 📄 README.md          # Project overview & instructions
-│── 📂 config/            # Stores API keys and environment variables
-│── 📂 search/            # Google search & web scraping scripts
-│── 📂 vector_db/         # FAISS storage for semantic search
-│── 📂 llm/               # LLM query handler
+📦 AI-Powered-Search-Engine
+├── 📂 config
+│   ├── config.py       # Stores API keys and constants
+├── 📂 search
+│   ├── google_search.py  # Fetches search results from Google API
+│   ├── scraper.py       # Extracts full text from articles
+├── 📂 vector_db
+│   ├── vector_store.py  # Handles FAISS vector database
+├── 📂 llm
+│   ├── llm_handler.py   # Processes user query with LLaMA 3.3-70B
+├── app.py              # Streamlit web app
+├── home.py             # Homepage UI setup
+├── requirements.txt    # Dependencies
+├── .env                # Stores API keys (Not shared for security)
 ```
 
 ---
