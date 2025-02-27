@@ -1,7 +1,3 @@
-You're right! Here’s the **complete documentation**, covering **all files** in detail. 🚀  
-
----
-
 # 📄 **AI-Powered Search Engine – Complete Documentation**  
 
 ## **📌 Overview**
@@ -9,7 +5,7 @@ This project is an **AI-powered search engine** that integrates:
 ✅ **Google Search API** for **real-time web search**  
 ✅ **Web Scraper** to extract **full article text**  
 ✅ **FAISS Vector Database** for **semantic search**  
-✅ **Llama 3.3-70B (Groq API)** for **AI-powered responses**  
+✅ **Multiple LLMs (Llama 3, Gemma, Qwen, DeepSeek)** for **AI-powered responses**  
 ✅ **Streamlit** for a **user-friendly web interface**  
 
 ---
@@ -61,10 +57,21 @@ st.set_page_config(page_title="AI Search Engine", page_icon="🔍", layout="wide
 - **Sets up the Streamlit UI** with a **custom page title and layout**.
 
 ```python
-st.sidebar.title("🔍 AI Search Engine")
-page = st.sidebar.radio("📌 Select Page", ["🏠 Home", "🔎 Search Engine"])
+available_llms = {
+    "Llama": "llama-3.3-70b-versatile",
+    "Gemma": "gemma2-9b-it",
+    "Qwen 2.5 Coder": "qwen-2.5-coder-32b",
+    "Qwen 2.5": "qwen-2.5-32b",
+    "DeepSeek R1 32b": "deepseek-r1-distill-qwen-32b",
+    "DeepSeek R1 70b": "deepseek-r1-distill-llama-70b",
+    "DeepSeek Qwen": "deepseek-r1-distill-qwen-32b"
+}
+
+selected_llm = st.sidebar.selectbox("🤖 Select an LLM Model", list(available_llms.keys()))
+st.session_state["selected_llm"] = available_llms[selected_llm]
 ```
-- **Creates a sidebar menu** for navigation.
+- **Adds a sidebar dropdown for users to select an LLM**.
+- **Stores the selected LLM in `session_state` for use across the app**.
 
 ```python
 if query:
@@ -72,161 +79,82 @@ if query:
     all_text = [extract_full_article(result["link"]) for result in search_results]
     vector_db = create_vector_db(all_text)
     retrieved_chunks = [doc.page_content for doc in vector_db.similarity_search(query, k=5)]
-    ai_response = query_llm(query, retrieved_chunks)
+    ai_response = query_llm(query, retrieved_chunks, model_name=st.session_state["selected_llm"])
 ```
 - **Steps:**  
 ✅ **Google search** → ✅ **Scrape articles** → ✅ **Store in FAISS** → ✅ **Query LLM for answers**.
 
 ---
 
-## **2️⃣ `home.py` (Home Page UI)**
+## **2️⃣ `llm_handler.py` (LLM Query Handler)**
 📌 **Brief:**  
-- **Displays project information, features, and navigation instructions**.
+- **Handles multiple LLMs** (Llama, Gemma, Qwen, DeepSeek)  
+- **Queries the selected LLM** for structured AI responses.  
 
-📌 **Detailed Explanation:**
-```python
-import streamlit as st
-
-def show_home():
-    st.header("🚀 Welcome to the AI-Powered Search Engine")
-```
-- **Displays a welcome message**.
-
-```python
-st.write("""
-[![GitHub Repository](https://img.shields.io/badge/View%20Source%20Code-gray?logo=github)](https://github.com/MuhammadUmerKhan/AI-Powered-Search-Engine)
-""")
-```
-- **Adds GitHub & LinkedIn buttons**.
-
-```python
-st.markdown("""
-## 🌍 What is this AI-Powered Search Engine?
-It uses **Google Search, FAISS, and LLMs** to provide **real-time, AI-generated answers**.
-""")
-```
-- **Explains how the system works**.
-
----
-
-## **3️⃣ `google_search.py` (Google Search API)**
-📌 **Brief:**  
-- Uses the **Google Custom Search API** to **fetch search results**.
-
-📌 **Detailed Explanation:**
-```python
-from googleapiclient.discovery import build
-from config.config import GOOGLE_SEARCH_KEY, SEARCH_ENGINE_ID, TOP_K_RESULTS
-```
-- **Imports API keys** from `config.py`.
-
-```python
-def google_custom_search(query):
-    service = build("customsearch", "v1", developerKey=GOOGLE_SEARCH_KEY)
-    result = service.cse().list(q=query, cx=SEARCH_ENGINE_ID, num=TOP_K_RESULTS).execute()
-```
-- **Queries Google** for search results.
-
----
-
-## **4️⃣ `scraper.py` (Web Scraper)**
-📌 **Brief:**  
-- Uses **`newspaper3k`** to **extract full-text content** from news articles.
-
-📌 **Detailed Explanation:**
-```python
-from newspaper import Article
-
-def extract_full_article(url):
-    article = Article(url)
-    article.download()
-    article.parse()
-    return article.text[:5000]
-```
-- **Downloads the article**, **extracts text**, and **limits it to 5000 characters**.
-
----
-
-## **5️⃣ `vector_store.py` (FAISS Vector Database)**
-📌 **Brief:**  
-- **Converts extracted text into vector embeddings** and **stores them in FAISS**.
-
-📌 **Detailed Explanation:**
-```python
-from langchain.vectorstores import FAISS
-from langchain.embeddings import HuggingFaceEmbeddings
-```
-- **Uses Hugging Face embeddings** to **convert text into vectors**.
-
-```python
-def create_vector_db(texts):
-    text_embeddings = embedding_model.embed_documents(texts)
-    return FAISS.from_documents(texts, embedding_model)
-```
-- **Stores the text embeddings in FAISS** for **semantic search**.
-
----
-
-## **6️⃣ `llm_handler.py` (LLM Query Handler)**
-📌 **Brief:**  
-- **Queries via Groq API** for **structured AI responses**.
-
-available_llms = {
-    "Llama": "llama-3.3-70b-versatile",
-    "Gemma": "gemma2-9b-it",
-    "Qwen 2.5": "qwen-2.5-32b",
-    "DeepSeek R1 32b": "deepseek-r1-distill-qwen-32b",
-    "DeepSeek R1 70b": "deepseek-r1-distill-llama-70b",
-    "DeepSeek Qwen": "deepseek-r1-distill-qwen-32b"
-}
-
-
-📌 **Detailed Explanation:**
+📌 **Updated Code to Support Multiple LLMs:**
 ```python
 from langchain_groq import ChatGroq
+from config.config import GROQ_API_KEY
+import logging
 
-def query_llm(query, retrieved_chunks):
-    llm = ChatGroq(model_name="SELECTED LLM", groq_api_key=GROQ_API_KEY)
-    context_text = "\n".join(retrieved_chunks)
-```
-- **Loads the LLM model** and **sends extracted text** as context.
+def query_llm(query, retrieved_chunks, model_name):
+    """
+    Generates a structured response using the selected LLM.
 
-```python
-prompt = f"""
-🔍 **User Query:** {query}
-🔎 **Extracted Info:** {context_text}
-📌 Generate an AI-powered structured response.
-"""
-response = llm.invoke(prompt)
+    Args:
+        query (str): User query.
+        retrieved_chunks (list): Retrieved document chunks.
+        model_name (str): Selected LLM model.
+
+    Returns:
+        str: AI-generated structured response.
+    """
+    try:
+        logging.info(f"🤖 Querying LLM: {model_name}")
+        llm = ChatGroq(
+            temperature=0,
+            groq_api_key=GROQ_API_KEY,
+            model_name=model_name
+        )
+
+        context_text = "\n".join(retrieved_chunks)
+
+        prompt = f"""
+        🔍 **User Query:** {query}
+        🔎 **Extracted Info:** {context_text}
+        📌 Generate an AI-powered structured response.
+        """
+
+        response = llm.invoke(prompt)
+        logging.info("✅ LLM Response Generated Successfully.")
+        return response
+
+    except Exception as e:
+        logging.error(f"❌ LLM Query Error: {str(e)}")
+        return "❌ Error generating LLM response."
 ```
-- **Generates an AI-powered response** using **extracted web content**.
+- **Now supports multiple LLM models dynamically based on user selection**.
+- **Uses `st.session_state["selected_llm"]` to determine the model**.
 
 ---
 
-## **7️⃣ `config.py` (Configuration)**
-📌 **Brief:**  
-- **Loads API keys** and **stores constants**.
-
-📌 **Detailed Explanation:**
-```python
-import os
-from dotenv import load_dotenv
-
-load_dotenv()
-GOOGLE_SEARCH_KEY = os.getenv("GOOGLE_SEARCH_API_KEY")
-SEARCH_ENGINE_ID = os.getenv("SEARCH_ENGINE_ID")
-GROQ_API_KEY = os.getenv("LANGCHAIN_GROK_API_KEY")
-```
-- **Loads API keys** securely using `.env`.
-
-```python
-CHUNK_SIZE = 1000
-CHUNK_OVERLAP = 100
-TOP_K_RESULTS = 3
-```
-- **Defines constants** for **text processing and search limits**.
+## **📌 Supported LLMs**
+| Model | API Name |
+|--------|-------------------------------|
+| Llama | `llama-3.3-70b-versatile` |
+| Gemma | `gemma2-9b-it` |
+| Qwen 2.5 Coder | `qwen-2.5-coder-32b` |
+| Qwen 2.5 | `qwen-2.5-32b` |
+| DeepSeek R1 32B | `deepseek-r1-distill-qwen-32b` |
+| DeepSeek R1 70B | `deepseek-r1-distill-llama-70b` |
+| DeepSeek Qwen | `deepseek-r1-distill-qwen-32b` |
 
 ---
 
 ## **🔗 Conclusion**
-This documentation covers **every file** in **detail**. Let me know if you need **further refinements or enhancements**! 🚀
+### ✅ **What's New in This Update?**
+- **Users can select from multiple LLMs** via the sidebar.
+- **LLM selection dynamically updates API requests**.
+- **Supports more LLM models: Llama, Gemma, Qwen, DeepSeek**.
+
+💡 **This update makes the search engine more powerful and customizable for different AI models.** 🚀
