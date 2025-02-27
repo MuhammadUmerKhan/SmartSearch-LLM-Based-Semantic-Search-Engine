@@ -8,6 +8,21 @@ from llm.llm_handler import query_llm
 # 🎨 Set Streamlit page configuration
 st.set_page_config(page_title="AI Search Engine", page_icon="🔍", layout="wide")
 
+available_llms = {
+    "Llama": "llama-3.3-70b-versatile",
+    "Gemma": "gemma2-9b-it",
+    "Qwen 2.5": "qwen-2.5-32b",
+    "DeepSeek R1 32b": "deepseek-r1-distill-qwen-32b",
+    "DeepSeek R1 70b": "deepseek-r1-distill-llama-70b",
+    "DeepSeek Qwen": "deepseek-r1-distill-qwen-32b"
+}
+
+# 🌟 **Sidebar: Select LLM**
+selected_llm = st.sidebar.selectbox("🤖 Select an LLM Model", list(available_llms.keys()))
+
+# Store the selected LLM in session state
+st.session_state["selected_llm"] = available_llms[selected_llm]
+
 # 🏠 Sidebar Navigation
 st.sidebar.title("🔍 AI Search Engine")
 page = st.sidebar.radio("📌 Select Page", ["🏠 Home", "🔍 Search Engine"])
@@ -80,7 +95,7 @@ elif page == "🔍 Search Engine":
                 retrieved_chunks = [doc.page_content for doc in vector_db.similarity_search(query, k=5)]
 
                 # 🤖 Get LLM response
-                ai_response = query_llm(query, retrieved_chunks)
+                ai_response = query_llm(query, retrieved_chunks, model_name=st.session_state["selected_llm"])
                 formatted_response = ai_response.content.replace("**", "<b>").replace("**", "</b>")
 
                 st.markdown("<h3 style='color: #ff4d4d;'>📌 AI-Powered Answer:</h3>", unsafe_allow_html=True)
