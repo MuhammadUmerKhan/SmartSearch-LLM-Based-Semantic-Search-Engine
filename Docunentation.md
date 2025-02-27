@@ -143,7 +143,6 @@ def query_llm(query, retrieved_chunks, model_name):
 |--------|-------------------------------|
 | Llama | `llama-3.3-70b-versatile` |
 | Gemma | `gemma2-9b-it` |
-| Qwen 2.5 Coder | `qwen-2.5-coder-32b` |
 | Qwen 2.5 | `qwen-2.5-32b` |
 | DeepSeek R1 32B | `deepseek-r1-distill-qwen-32b` |
 | DeepSeek R1 70B | `deepseek-r1-distill-llama-70b` |
