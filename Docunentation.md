@@ -169,14 +169,24 @@ def create_vector_db(texts):
 
 ## **6️⃣ `llm_handler.py` (LLM Query Handler)**
 📌 **Brief:**  
-- **Queries Llama 3.3-70B via Groq API** for **structured AI responses**.
+- **Queries via Groq API** for **structured AI responses**.
+
+available_llms = {
+    "Llama": "llama-3.3-70b-versatile",
+    "Gemma": "gemma2-9b-it",
+    "Qwen 2.5": "qwen-2.5-32b",
+    "DeepSeek R1 32b": "deepseek-r1-distill-qwen-32b",
+    "DeepSeek R1 70b": "deepseek-r1-distill-llama-70b",
+    "DeepSeek Qwen": "deepseek-r1-distill-qwen-32b"
+}
+
 
 📌 **Detailed Explanation:**
 ```python
 from langchain_groq import ChatGroq
 
 def query_llm(query, retrieved_chunks):
-    llm = ChatGroq(model_name="llama-3.3-70b-versatile", groq_api_key=GROQ_API_KEY)
+    llm = ChatGroq(model_name="SELECTED LLM", groq_api_key=GROQ_API_KEY)
     context_text = "\n".join(retrieved_chunks)
 ```
 - **Loads the LLM model** and **sends extracted text** as context.
