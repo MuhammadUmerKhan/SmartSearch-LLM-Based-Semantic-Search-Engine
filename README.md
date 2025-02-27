@@ -75,6 +75,16 @@ The **AI-Powered Search Engine** is a web-based application that combines **Goog
 
 ---
 
+| Model | API Name |
+|--------|-------------------------------|
+| Llama | `llama-3.3-70b-versatile` |
+| Gemma | `gemma2-9b-it` |
+| Qwen 2.5 | `qwen-2.5-32b` |
+| DeepSeek R1 32B | `deepseek-r1-distill-qwen-32b` |
+| DeepSeek R1 70B | `deepseek-r1-distill-llama-70b` |
+| DeepSeek Qwen | `deepseek-r1-distill-qwen-32b` |
+
+---
 ## 🛠 **Setup & Installation**
 
 ### **1️⃣ Clone the Repository**
