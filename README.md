@@ -58,7 +58,7 @@ The **AI-Powered Search Engine** is a web-based application that combines **Goog
 - Stores **embeddings** in a FAISS vector database for efficient retrieval.
 
 #### 5️⃣ **`llm_handler.py` - LLM Query Processor**
-- Calls **Llama 3.3-70B** via **LangChain-Groq API**.
+- Calls **DIFFERENT** via **LangChain-Groq API**.
 - Takes user query + relevant text chunks → **generates AI response**.
 - Formats responses into **structured bullet points with emojis**.
 
