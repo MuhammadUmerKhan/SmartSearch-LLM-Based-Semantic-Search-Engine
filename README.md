@@ -1,4 +1,4 @@
-# 📌 AI-Powered Search Engine with LLMs
+# 📌 AI-Powered Semantic Search Engine with LLMs & Vector Databases
 
 ## 🚀 Introduction
 The **AI-Powered Search Engine** is a web-based application that combines **Google Search API**, **web scraping**, **FAISS vector database**, and **LLMs** to fetch, extract, and summarize real-time search results. This tool is designed to **enhance information retrieval** by providing structured, AI-generated responses.
