@@ -57,6 +57,28 @@ def query_llm(query, retrieved_chunks, model_name):
         logging.error(f"❌ LLM Query Error: {str(e)}")
         return "❌ Error generating LLM response."
 
+
+def configure_llm(model_name):
+    """
+    Configure LLM to run on Hugging Face Inference API (Cloud-Based).
+    
+    Returns:
+        llm (LangChain LLM object): Configured model instance.
+    """
+
+    # Sidebar to select LLM
+    try:
+        logging.info(f"🤖 Querying LLM: {model_name}")
+        llm = ChatGroq(
+            temperature=0,
+            groq_api_key=GROQ_API_KEY,
+            model_name=model_name
+        )
+        return llm
+    except Exception as e:
+        logging.error(f"❌ LLM Query Error: {str(e)}")
+        return "❌ Error generating LLM response."
+    
 # ✅ Decorator to enable chat history
 def enable_chat_history(func):
     """
@@ -112,7 +134,7 @@ def print_qa(cls, question, answer):
         answer (str): Model response.
     """
     log_str = f"\nUsecase: {cls.__name__}\nQuestion: {question}\nAnswer: {answer}\n" + "-" * 50
-    logger.info(log_str)  # Log the interaction using Streamlit's logger
+    logging.info(log_str)  # Log the interaction using Streamlit's logger
 
 @st.cache_resource  # Cache the embedding model to avoid reloading it every time
 def configure_embedding_model():
