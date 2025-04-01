@@ -115,7 +115,7 @@ AI_Search_Engine/
 
 ### **1️⃣ Clone the Repository**
 ```bash
-git clone https://github.com/MuhammadUmerKhan/AI-Powered-Search-Engine.git
+git clone https://github.com/MuhammadUmerKhan/AI-Powered-Semantic-Search-Engine-with-LLMs-Vector-Databases.git
 cd AI-Powered-Search-Engine
 ```
 
