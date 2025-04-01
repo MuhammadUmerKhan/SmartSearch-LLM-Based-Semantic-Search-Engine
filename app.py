@@ -3,7 +3,7 @@ from search.google_search import google_custom_search
 from search.scraper import extract_full_article
 from vector_db.vector_store import create_vector_db
 from llm.llm_handler import query_llm
-from pages import instruct, home, custom_urls, search_engine
+from app import instruct, home, custom_urls, search_engine
 
 # 🎨 Set Streamlit page configuration
 st.set_page_config(page_title="AI Search Engine", page_icon="🔍", layout="wide")
