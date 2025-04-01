@@ -125,14 +125,6 @@ pip install -r requirements.txt
 ```
 
 ### **3️⃣ Set Up API Keys**
-Create a `.env` file in the root directory and add:
-```env
-GOOGLE_SEARCH_API_KEY=your_google_api_key
-SEARCH_ENGINE_ID=your_search_engine_id
-LANGCHAIN_GROK_API_KEY=your_llm_api_key
-```
-
-### **3️⃣ Set Up API Keys**
 To use the search engine, you'll need to set up the following API keys. Create a `.env` file in the root directory of your project and add the following variables:
 
 ```env
