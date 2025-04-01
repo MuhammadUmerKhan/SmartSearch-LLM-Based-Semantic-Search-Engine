@@ -47,7 +47,7 @@ AI_Search_Engine/
 │
 ├── requirements.txt           # 📦 Dependencies for the Project
 │
-├── .env                # Stores API keys (Not shared for security)
+├── .env                       # Stores API keys (Not shared for security)
 │
 └── README.md                  # 📖 Project Documentation & Setup Guide
 ```
