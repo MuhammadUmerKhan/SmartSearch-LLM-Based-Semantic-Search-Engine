@@ -1,35 +1,55 @@
 # 📌 AI-Powered Semantic Search Engine with LLMs & Vector Databases
 
 ## 🚀 Introduction
-The **AI-Powered Search Engine** is a web-based application that combines **Google Search API**, **web scraping**, **FAISS vector database**, and **LLMs** to fetch, extract, and summarize real-time search results. This tool is designed to **enhance information retrieval** by providing structured, AI-generated responses.
+The **AI-Powered Search Engine** is a web-based application that combines **Google Search API**, **web scraping**, **FAISS vector database**, **LLMs**, and **custom URL search** to fetch, extract, and summarize real-time search results. This tool is designed to **enhance information retrieval** by providing structured, AI-generated responses from both web results and custom URL inputs.
 
 ![](https://media.licdn.com/dms/image/v2/D5612AQEmQPzwyDhgbw/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1716132344917?e=2147483647&v=beta&t=vUIJxi_t4HCoQxV8HqEDWm3U7Uzz40Kp4YFCB-C5RuU)
 ---
+
 ### 🔹 **Key Features**
 - **🔍 Real-time Web Search**: Fetches search results via **Google Custom Search API**.
 - **📄 Article Extraction**: Scrapes full-text articles from links.
+- **🌐 Custom URL Search**: Allows users to input URLs for content extraction and indexing.
 - **🧠 FAISS Vector Database**: Stores and retrieves key content.
 - **🤖 AI-Powered Answering**: Uses **Llama 3** via **LangChain** to generate structured answers.
 - **🚀 Streamlit UI**: Provides an interactive and user-friendly interface.
+
 
 ---
 
 ## 📂 **Project Structure & File Explanations**
 ```
-📦 AI-Powered-Search-Engine
-├── 📂 config
-│   ├── config.py       # Stores API keys and constants
-├── 📂 search
-│   ├── google_search.py  # Fetches search results from Google API
-│   ├── scraper.py       # Extracts full text from articles
-├── 📂 vector_db
-│   ├── vector_store.py  # Handles FAISS vector database
-├── 📂 llm
-│   ├── llm_handler.py   # Processes user query with LLaMA 3.3-70B
-├── app.py              # Streamlit web app
-├── home.py             # Homepage UI setup
-├── requirements.txt    # Dependencies
+AI_Search_Engine/
+│
+├── app.py                    # 🎨 Streamlit UI for User Interaction
+│
+├── notebook/
+│   ├── AI_Powered_Search_Engine.ipynb  # 📚 Jupyter Notebook for Experimentation
+│
+├── config/
+│   ├── config.py              # ⚙️ API Keys & Global Configurations
+│
+├── search/
+│   ├── google_search.py       # 🔍 Google Search API Handling
+│   ├── scraper.py             # 📄 Web Scraping & Article Extraction
+│
+├── vector_store/
+│   ├── vector_store.py        # 📚 FAISS Vector Database Handling
+│
+├── llm/
+│   ├── llm_handler.py         # 🤖 LLM Query Processing
+│
+├── pages/
+│   ├── custom_urls.py         # 🌐 Custom URL Search Handler
+│   ├── home.py                # 🏠 Home Page
+│   ├── instruct.py            # 📜 Search Engine Instructions
+│   ├── search_engine.py       # 🔎 Search Engine Implementation
+│
+├── requirements.txt           # 📦 Dependencies for the Project
+│
 ├── .env                # Stores API keys (Not shared for security)
+│
+└── README.md                  # 📖 Project Documentation & Setup Guide
 ```
 
 ### **📜 File Explanations**
@@ -40,7 +60,7 @@ The **AI-Powered Search Engine** is a web-based application that combines **Goog
   - `GOOGLE_SEARCH_KEY` (Google API Key)
   - `SEARCH_ENGINE_ID` (Custom Search Engine ID)
   - `GROQ_API_KEY` (LLM API Key)
-  - `CHUNK_SIZE`, `CHUNK_OVERLAP`, and `TOP_K_RESULTS`
+  - `CHUNK_SIZE`, `CHUNK_OVERLAP`, `MAX_LENGTH`, and `TOP_K_RESULTS`
 
 #### 2️⃣ **`google_search.py` - Google Search API Integration**
 - Calls **Google Custom Search API** to fetch top results.
@@ -72,6 +92,12 @@ The **AI-Powered Search Engine** is a web-based application that combines **Goog
 - Displays:
   - **AI-generated structured answer**
   - **List of sources with clickable links**
+
+#### 8️⃣ **`custom_urls.py` - Custom URL Search Handler**
+- Allows users to **input URLs** for content extraction.
+- Extracted content is indexed into a **FAISS vector database**.
+- Users can search using this custom content, enhancing search results.
+
 
 ---
 ## **🤖 Supported LLMs**
@@ -116,9 +142,14 @@ streamlit run app.py
 ## 🎯 **Usage Guide**
 ### 🔍 **How to Use the AI-Powered Search Engine**
 1️⃣ **Navigate to the Home Page** → Read about features & how it works.  
-2️⃣ **Go to the Search Page** → Enter a query in the search box.  
+2️⃣ **Go to the Search Page** → Enter a query in the search box or input URLs to add custom content.  
 3️⃣ **Press Enter** → The app will fetch, extract, process, and generate AI responses.  
-4️⃣ **View AI Response & Sources** → Click links for more details.  
+4️⃣ **View AI Response & Sources** → Click links for more details.
+
+### 🌐 **Using Custom URL-Based Search**
+1️⃣ **Enter a URL** in the provided text area.  
+2️⃣ **Click "Extract & Search"** to index content from the URL.  
+3️⃣ Use the search box to query the indexed URL content for AI-generated answers.
 
 📌 **Example Queries:**
 - *"What are the latest advancements in AI?"*
@@ -134,6 +165,7 @@ streamlit run app.py
 ✅ **Newspaper3k** - Extracts article content.  
 ✅ **FAISS** - Vector storage for fast retrieval.  
 ✅ **LangChain & Llama 3** - LLM for generating AI-powered responses.  
+✅ **Custom URL Search** - Indexes and searches user-provided URLs.
 
 ---
 
@@ -145,6 +177,7 @@ streamlit run app.py
 🔜 Implement **document upload** for personalized search.  
 
 ---
+
 ## 🔴 Live Demo:
 - [Web App](https://ai-powered-search-engine-using-llm.streamlit.app/?embed_options=show_toolbar,dark_theme,show_colored_line,show_footer)
 ---
