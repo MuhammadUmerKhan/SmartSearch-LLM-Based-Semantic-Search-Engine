@@ -1,9 +1,9 @@
 import streamlit as st
-import home  # Import the home.py file
 from search.google_search import google_custom_search
 from search.scraper import extract_full_article
 from vector_db.vector_store import create_vector_db
 from llm.llm_handler import query_llm
+from pages import instruct, home
 
 # 🎨 Set Streamlit page configuration
 st.set_page_config(page_title="AI Search Engine", page_icon="🔍", layout="wide")
@@ -34,46 +34,7 @@ if page == "🏠 Home":
 # 🔍 Load Search Engine
 elif page == "🔍 Search Engine":
     # 🎯 **Navigation Instructions**
-    st.sidebar.markdown("## 🕵 Search Page")
-    st.sidebar.markdown("""
-    ### 💬 How to Use:
-    1️⃣ **Enter Your Query** in the search box.  
-    2️⃣ **Press Enter** to initiate the AI-powered search.  
-    3️⃣ **Wait a few seconds** as the system fetches and processes results.  
-    4️⃣ View **AI-generated responses** and **source links** for more details.  
-    5️⃣ Click on any **source link** to read the full article.  
-
-    📌 **Tip:** Be specific with your query for more accurate results!  
-    """)
-
-    # ✅ Title with gradient effect
-    st.markdown("""
-        <h1 style="text-align: center;">
-            🔍 AI-Powered Search Engine with LLMs 🤖
-        </h1>
-    """, unsafe_allow_html=True)
-
-    # 🎨 Stylish Search Box
-    st.markdown("""
-        <style>
-            .search-box {
-                font-size: 18px;
-                padding: 12px;
-                border-radius: 8px;
-                border: 2px solid #ff4d4d;
-                width: 100%;
-                background-color: #f9f9f9;
-            }
-        </style>
-    """, unsafe_allow_html=True)
-    st.markdown("### 💡 Example Queries:")
-    st.markdown("""
-    - 🔍 What are the latest AI trends in 2025?  
-    - 🚀 How does Quantum Computing impact AI?  
-    - 🏆 Who are the top football players in 2025?  
-    - 🛠 Best AI tools for developers in 2025?  
-    - 🛒 How AI is transforming e-commerce?  
-    """)
+    instruct.instruct()
 
     # ⌨️ Real-Time Search Input (Press Enter to Search)
     query = st.text_input("🔎 Ask Anything:", key="search_input", placeholder="Enter your query")
