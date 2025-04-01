@@ -14,7 +14,7 @@ try:
     SEARCH_ENGINE_ID = os.getenv("SEARCH_ENGINE_ID")
     GROQ_API_KEY = os.getenv("LANGCHAIN_GROK_API_KEY")
 except:
-    logging.error("���️ API KEYS not found or not set.")
+    logging.error("❌ API KEYS not found or not set.")
 
 try:
     # Constants
@@ -23,6 +23,6 @@ try:
     TOP_K_RESULTS = 3
     MAX_LENGTH = 5000
 except Exception as e:
-    logging.error(f"�� Error loading Constants: {str(e)}")
+    logging.error(f"❌ Error loading Constants: {str(e)}")
 
 logging.info("✅ Configuration Loaded Successfully.")
