@@ -132,6 +132,11 @@ SEARCH_ENGINE_ID=your_search_engine_id
 LANGCHAIN_GROK_API_KEY=your_llm_api_key
 ```
 
+google_search_key = os.getenv("GOOGLE_SEARCH_API_KEY") # Google Search API key (Generate from: https://cse.google.com/cse/all)
+search_engine_id = os.getenv("SEARCH_ENGINE_ID") # Search engine ID (Generate from: Copy ID after creating engine)
+grok_api_key = os.getenv("LANGCHAIN_GROK_API_KEY") # Langchain Grok API key (Generate from: https://console.groq.com/)
+hugginface_api_key = os.getenv("HUGGINFACE_LOGIN_API_KEY") # Huggingface Logging API key (Generate from: https://huggingface.co/)
+
 ### **4️⃣ Run the Application**
 ```bash
 streamlit run app.py
