@@ -3,7 +3,7 @@ from search.google_search import google_custom_search
 from search.scraper import extract_full_article
 from vector_db.vector_store import create_vector_db
 from llm.llm_handler import query_llm
-from app_pages.instruct import search_instruct
+from app_pages.instruction import search_instruct
 
 def search_engine():
     # 🎯 **Navigation Instructions**
