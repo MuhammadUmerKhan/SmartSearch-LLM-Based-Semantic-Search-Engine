@@ -132,10 +132,22 @@ SEARCH_ENGINE_ID=your_search_engine_id
 LANGCHAIN_GROK_API_KEY=your_llm_api_key
 ```
 
-google_search_key = os.getenv("GOOGLE_SEARCH_API_KEY") # Google Search API key (Generate from: https://cse.google.com/cse/all)
-search_engine_id = os.getenv("SEARCH_ENGINE_ID") # Search engine ID (Generate from: Copy ID after creating engine)
-grok_api_key = os.getenv("LANGCHAIN_GROK_API_KEY") # Langchain Grok API key (Generate from: https://console.groq.com/)
-hugginface_api_key = os.getenv("HUGGINFACE_LOGIN_API_KEY") # Huggingface Logging API key (Generate from: https://huggingface.co/)
+### **3️⃣ Set Up API Keys**
+To use the search engine, you'll need to set up the following API keys. Create a `.env` file in the root directory of your project and add the following variables:
+
+```env
+GOOGLE_SEARCH_API_KEY=your_google_api_key           # Google Search API key (Generate from: https://cse.google.com/cse/all)
+SEARCH_ENGINE_ID=your_search_engine_id              # Search engine ID (Generate from: Copy ID after creating engine)
+LANGCHAIN_GROK_API_KEY=your_llm_api_key            # Langchain Grok API key (Generate from: https://console.groq.com/)
+HUGGINGFACE_LOGIN_API_KEY=your_huggingface_api_key  # Huggingface Logging API key (Generate from: https://huggingface.co/)
+```
+
+**Where to Get the Keys:**
+- **Google Search API Key**: [Generate from Google](https://cse.google.com/cse/all)
+- **Search Engine ID**: After creating your custom search engine on Google, you can find your Search Engine ID. Just copy it from the CSE control panel.
+- **LangChain Grok API Key**: [Generate from LangChain Console](https://console.groq.com/)
+- **Huggingface Login API Key**: [Generate from HuggingFace](https://huggingface.co/)
+
 
 ### **4️⃣ Run the Application**
 ```bash
