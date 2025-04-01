@@ -2,7 +2,7 @@ import streamlit as st
 import re
 from search.scraper import extract_full_article
 from vector_db.vector_store import create_vector_db
-from llm.llm_handler import query_llm
+from utils.utils import query_llm
 from app_pages.instruction import custom_instruct
 
 def split_urls(input_text):
