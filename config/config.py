@@ -16,9 +16,13 @@ try:
 except:
     logging.error("���️ API KEYS not found or not set.")
 
-# Constants
-CHUNK_SIZE = 1000
-CHUNK_OVERLAP = 100
-TOP_K_RESULTS = 3
+try:
+    # Constants
+    CHUNK_SIZE = 1000
+    CHUNK_OVERLAP = 100
+    TOP_K_RESULTS = 3
+    MAX_LENGTH = 5000
+except Exception as e:
+    logging.error(f"�� Error loading Constants: {str(e)}")
 
 logging.info("✅ Configuration Loaded Successfully.")
