@@ -3,7 +3,7 @@ from search.google_search import google_custom_search
 from search.scraper import extract_full_article
 from vector_db.vector_store import create_vector_db
 from utils.utils import query_llm
-from app_pages import instruction, home, custom_urls, search_engine
+from app_pages import instruction, home, custom_urls, search_engine, doc_chat
 
 # 🎨 Set Streamlit page configuration
 st.set_page_config(page_title="AI Search Engine", page_icon="🔍", layout="wide")
@@ -25,7 +25,7 @@ st.session_state["selected_llm"] = available_llms[selected_llm]
 
 # 🏠 Sidebar Navigation
 st.sidebar.title("**🔍 AI Search Engine**")
-page = st.sidebar.radio("📌 **Select Page**", ["🏠 Home", "🔍 Search Engine", "🔗 Custom URL Search"])
+page = st.sidebar.radio("📌 **Select Page**", ["🏠 Home", "🔍 Search Engine", "🔗 Custom URL Search", "📄 Chat with Documents"])
 
 # 🎯 Load Home Page
 if page == "🏠 Home":
@@ -38,3 +38,5 @@ elif page == "🔍 Search Engine":
 elif page == "🔗 Custom URL Search":
     st.sidebar.markdown("# **🔗 Custom Search Engine**")
     custom_urls.custom_url_search()
+elif page == "📄 Chat with Documents":
+    doc_chat.run_doc_chat()
