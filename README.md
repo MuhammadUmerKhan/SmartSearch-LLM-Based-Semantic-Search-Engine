@@ -42,8 +42,9 @@ AI_Search_Engine/
 ├── pp_pages/
 │   ├── custom_urls.py         # 🌐 Custom URL Search Handler
 │   ├── home.py                # 🏠 Home Page
-│   ├── instruction.py            # 📜 Search Engine Instructions
+│   ├── instruction.py         # 📜 Search Engine Instructions
 │   ├── search_engine.py       # 🔎 Search Engine Implementation
+│   ├── doc_chat.py            # 📜 Chat with documents
 │
 ├── requirements.txt           # 📦 Dependencies for the Project
 │
