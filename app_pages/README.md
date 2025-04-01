@@ -89,6 +89,29 @@ The **`search_engine.py`** module is the core of the AI-powered search engine. I
 5. **AI Response Generation**: The user query and relevant content chunks are fed to the LLM for generating a response.
 6. **Displaying Results**: The results, including AI-generated answers and source links, are displayed on the UI.
 
+---
+
+## **`doc_chat.py` - Multi-Document Upload & Smart Q&A System**
+
+### **Purpose**
+The **`doc_chat.py`** module powers the DocuMind AI, an intelligent document-based Q&A system. It allows users to upload multiple document formats (PDF, DOCX, TXT) and interact with their contents using AI-powered question-answering capabilities. The system leverages **LangChain**, **FAISS vector search**, and **sentence embeddings** to retrieve the most relevant information based on user queries.
+
+### **Key Features**
+- **Multi-Document Upload**: Users can upload **PDF, DOCX, and TXT** files for processing.
+- **Text Chunking & Embeddings**: Splits documents into smaller chunks for efficient retrieval.
+- **FAISS Vector Search**: Stores document embeddings for quick and relevant information retrieval.
+- **Conversational AI**: Uses an LLM (Large Language Model) to provide context-aware responses.
+- **Memory Retention**: Maintains chat history for seamless multi-turn conversations.
+
+### **Workflow**
+1. **User Uploads Documents**: Users can upload multiple **PDF, DOCX, or TXT** files via the Streamlit UI.
+2. **Document Processing**: The system reads, extracts, and converts documents into structured text data.
+3. **Text Chunking**: Documents are split into smaller, manageable chunks for embedding.
+4. **Vectorization & FAISS Indexing**: Embeddings of the text chunks are created and stored in the FAISS vector database.
+5. **User Queries the Document**: The user asks questions related to the uploaded documents.
+6. **Retrieval & AI Response Generation**: Relevant document chunks are retrieved, and an AI-generated response is provided.
+7. **Conversation Memory**: The system retains chat history for better user experience and context-aware responses.
+
 ### **Core Functions**
 - **`fetch_search_results`**: Calls the Google Custom Search API to fetch results based on the query.
 - **`scrape_content_from_urls`**: Scrapes full content from the URLs returned by the Google API.
