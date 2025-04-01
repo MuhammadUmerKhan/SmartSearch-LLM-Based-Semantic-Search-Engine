@@ -184,7 +184,6 @@ streamlit run app.py
 
 ## 👨‍💻 **Author & Contact**
 💡 **Developed by:** [Muhammad Umer Khan](https://www.linkedin.com/in/muhammad-umer-khan-61729b260/)  
-📂 **GitHub Repo:** [AI-Powered Search Engine](https://github.com/MuhammadUmerKhan?tab=repositories)  
 📧 **Contact:** Reach out via LinkedIn or GitHub.  
 
 🌟 **If you found this project helpful, give it a ⭐ on GitHub!** 🚀
