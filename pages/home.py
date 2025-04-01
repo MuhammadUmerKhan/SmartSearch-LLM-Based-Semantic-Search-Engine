@@ -4,7 +4,11 @@ def show_home():
     """Displays the Home Page content"""
 
     # 🎯 **Main Header**
-    st.header("🚀 Welcome to the AI-Powered Search Engine")
+    st.markdown("""
+        <h1 style="text-align: center;">
+            🚀 Welcome to the AI-Powered Search Engine
+        </h1>
+    """, unsafe_allow_html=True)
 
     # 🔗 **GitHub and LinkedIn Links**
     st.write("""
