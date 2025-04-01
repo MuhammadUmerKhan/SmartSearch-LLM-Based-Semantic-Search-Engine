@@ -19,7 +19,7 @@ def extract_full_article(url, max_length=MAX_LENGTH):
     try:
         logging.info(f"📄 Extracting article from: {url}")
         article = Article(url)
-        # article.download()
+        article.download()
         article.parse()
         logging.info("✅ Successfully extracted article.")
         return article.text[:max_length]  # Limit content length dynamically
