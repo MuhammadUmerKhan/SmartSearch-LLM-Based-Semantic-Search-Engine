@@ -1,16 +1,29 @@
 AI_Search_Engine/
-│── app.py                  # 🎨 Streamlit UI for user interaction
 │
-│── config/
-│   ├── config.py           # ⚙️ API Keys & Global Configurations (✅ Already exists)
-│── search/
-│   ├── google_search.py    # 🔍 Google Search API Handling (✅ Improved Logging)
-│   ├── scraper.py          # 📄 Web Scraping & Article Extraction (✅ Improved Logging)
-│── vector_store/
-│   ├── vector_store.py     # 📚 FAISS Vector Database Handling (✅ Improved Logging)
-│── llm/
-│   ├── llm_handler.py      # 🤖 LLM Query Processing (✅ Improved Logging)
-│── utils/
-│   ├── error_handler.py    # 🛠️ Error Handling & Logging (✅ New - for centralized logging)
-│── requirements.txt        # 📦 Dependencies
-│── README.md               # 📖 Project Documentation
+├── app.py                    # 🎨 Streamlit UI for User Interaction
+│
+├── notebook/
+│   ├── AI_Powered_Search_Engine.ipynb  # 📚 Jupyter Notebook for Experimentation
+│
+├── config/
+│   ├── config.py              # ⚙️ API Keys & Global Configurations
+│
+├── search/
+│   ├── google_search.py       # 🔍 Google Search API Handling
+│   ├── scraper.py             # 📄 Web Scraping & Article Extraction
+│
+├── vector_store/
+│   ├── vector_store.py        # 📚 FAISS Vector Database Handling
+│
+├── llm/
+│   ├── llm_handler.py         # 🤖 LLM Query Processing
+│
+├── pages/
+│   ├── custom_urls.py         # 🌐 Custom URL Search Handler
+│   ├── home.py                # 🏠 Home Page
+│   ├── instruct.py            # 📜 Search Engine Instructions
+│   ├── search_engine.py       # 🔎 Search Engine Implementation
+│
+├── requirements.txt           # 📦 Dependencies for the Project
+│
+└── README.md                  # 📖 Project Documentation & Setup Guide
