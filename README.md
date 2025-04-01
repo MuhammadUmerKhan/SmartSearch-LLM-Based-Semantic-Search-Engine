@@ -39,10 +39,10 @@ AI_Search_Engine/
 ├── llm/
 │   ├── llm_handler.py         # 🤖 LLM Query Processing
 │
-├── pages/
+├── pp_pages/
 │   ├── custom_urls.py         # 🌐 Custom URL Search Handler
 │   ├── home.py                # 🏠 Home Page
-│   ├── instruct.py            # 📜 Search Engine Instructions
+│   ├── instruction.py            # 📜 Search Engine Instructions
 │   ├── search_engine.py       # 🔎 Search Engine Implementation
 │
 ├── requirements.txt           # 📦 Dependencies for the Project
