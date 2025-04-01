@@ -6,17 +6,17 @@ AI_Search_Engine/
 │   ├── AI_Powered_Search_Engine.ipynb  # 📚 Jupyter Notebook for Experimentation
 │
 ├── config/
-│   ├── config.py              # ⚙️ API Keys & Global Configurations (✅ Already Exists)
+│   ├── config.py              # ⚙️ API Keys & Global Configurations
 │
 ├── search/
-│   ├── google_search.py       # 🔍 Google Search API Handling (✅ Improved Logging)
-│   ├── scraper.py             # 📄 Web Scraping & Article Extraction (✅ Improved Logging)
+│   ├── google_search.py       # 🔍 Google Search API Handling
+│   ├── scraper.py             # 📄 Web Scraping & Article Extraction
 │
 ├── vector_store/
-│   ├── vector_store.py        # 📚 FAISS Vector Database Handling (✅ Improved Logging)
+│   ├── vector_store.py        # 📚 FAISS Vector Database Handling
 │
 ├── llm/
-│   ├── llm_handler.py         # 🤖 LLM Query Processing (✅ Improved Logging)
+│   ├── llm_handler.py         # 🤖 LLM Query Processing
 │
 ├── pages/
 │   ├── custom_urls.py         # 🌐 Custom URL Search Handler
