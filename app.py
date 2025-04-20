@@ -9,12 +9,11 @@ from app_pages import instruction, home, custom_urls, search_engine, doc_chat
 st.set_page_config(page_title="AI Search Engine", page_icon="🔍", layout="wide")
 
 available_llms = {
-    "Llama": "llama-3.3-70b-versatile",
+    "Llama 3": "llama-3.3-70b-versatile",
     "Gemma": "gemma2-9b-it",
-    "Qwen 2.5": "qwen-2.5-32b",
-    "DeepSeek R1 32b": "deepseek-r1-distill-qwen-32b",
+    "Qwen": "qwen-qwq-32b",
     "DeepSeek R1 70b": "deepseek-r1-distill-llama-70b",
-    "DeepSeek Qwen": "deepseek-r1-distill-qwen-32b"
+    "Llama 4": "meta-llama/llama-4-scout-17b-16e-instruct"
 }
 
 # 🌟 **Sidebar: Select LLM**
