@@ -38,4 +38,4 @@ elif page == "🔗 Custom URL Search":
     st.sidebar.markdown("# **🔗 Custom Search Engine**")
     custom_urls.custom_url_search()
 elif page == "📄 Chat with Documents":
-    doc_chat.run_doc_chat()
+    doc_chat.CustomDocChatbot()
