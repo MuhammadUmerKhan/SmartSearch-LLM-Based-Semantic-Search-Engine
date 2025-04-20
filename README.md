@@ -107,9 +107,8 @@ AI_Search_Engine/
 | Llama | `llama-3.3-70b-versatile` |
 | Gemma | `gemma2-9b-it` |
 | Qwen | `qwen-qwq-32b` |
-| DeepSeek R1 32B | `deepseek-r1-distill-qwen-32b` |
-| DeepSeek R1 70B | `deepseek-r1-distill-llama-70b` |
-| DeepSeek Qwen | `deepseek-r1-distill-qwen-32b` |
+| DeepSeek | `deepseek-r1-distill-qwen-32b` |
+| Llama 4 | `meta-llama/llama-4-scout-17b-16e-instruct` |
 
 ---
 ## 🛠 **Setup & Installation**
