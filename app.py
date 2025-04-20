@@ -12,7 +12,7 @@ available_llms = {
     "Llama 3": "llama-3.3-70b-versatile",
     "Gemma": "gemma2-9b-it",
     "Qwen": "qwen-qwq-32b",
-    "DeepSeek R1 70b": "deepseek-r1-distill-llama-70b",
+    "DeepSeek": "deepseek-r1-distill-llama-70b",
     "Llama 4": "meta-llama/llama-4-scout-17b-16e-instruct"
 }
 
