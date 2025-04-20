@@ -1,6 +1,4 @@
-import numpy as np
 from langchain.vectorstores import FAISS
-from langchain.embeddings import HuggingFaceEmbeddings
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.schema import Document
 from config.config import CHUNK_SIZE, CHUNK_OVERLAP
