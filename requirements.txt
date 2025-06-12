@@ -8,3 +8,4 @@ python-dotenv
 langchain-community
 sentence-transformers
 pypdf
+streamlit
