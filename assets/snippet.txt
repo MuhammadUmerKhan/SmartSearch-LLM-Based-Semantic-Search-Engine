@@ -1,0 +1,14 @@
+● SmartSearch: LLM-Based Semantic Search Engine                                                                Personal Project | 2025
+• Challenge: Traditional keyword-based search engines lack semantic depth and context, often producing noisy or
+            irrelevant results.
+• Action:
+    • Built a Retrieval-Augmented Generation (RAG) system combining FAISS vector search, LLMs, and Google Search API
+    for dynamic query resolution.
+    • Implemented hybrid search by blending semantic similarity, keyword ranking, and real-time web data.
+    • Optimized system performance with caching, retry logic (Tenacity), and a modular architecture for extensibility.
+    • Designed plug-and-play support for vector DBs like Weaviate and Pinecone, enabling scale to large enterprise
+    knowledge bases.
+• Result:
+    • Delivered structured, context-aware answers, cutting search time and boosting retrieval precision across domains.
+    • Built for scalability and enterprise-readiness, supporting plug-and-play extensions to any vector DB or knowledge
+    source.
