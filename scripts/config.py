@@ -12,7 +12,7 @@ try:
 # API Keys (Keep them private using .env)
     GOOGLE_SEARCH_KEY = os.getenv("GOOGLE_SEARCH_API_KEY")
     SEARCH_ENGINE_ID = os.getenv("SEARCH_ENGINE_ID")
-    GROQ_API_KEY = os.getenv("LANGCHAIN_GROK_API_KEY")
+    GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 except:
     logging.error("❌ API KEYS not found or not set.")
 

@@ -1,9 +1,13 @@
 import streamlit as st
 import re
-from search.scraper import extract_full_article
-from vector_db.vector_store import create_vector_db
-from utils.utils import query_llm
+from scripts.scraper import extract_full_article
+from scripts.vector_store import create_vector_db
+from scripts.utils import query_llm
 from app_pages.instruction import custom_instruct
+import logging
+
+# Logging configuration
+logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 
 def split_urls(input_text):
     """
@@ -38,12 +42,27 @@ def custom_url_search():
             return
 
         with st.spinner("⏳ **Extracting content... Please wait!**"):
+            # Extract texts and filter out None/empty results
             extracted_texts = [extract_full_article(url.strip()) for url in urls_list]
+            valid_texts = [text for text in extracted_texts if text is not None and text.strip()]
+            
+            if not valid_texts:
+                logging.error("❌ No valid texts extracted from provided URLs")
+                st.error("⚠️ Could not extract meaningful content from the provided URLs. Please try different URLs.")
+                return
+
+            # Log extracted texts for debugging
+            for i, text in enumerate(valid_texts):
+                logging.info(f"Extracted text {i} (first 100 chars): {text[:100]}...")
 
             # Create a FAISS vector database from extracted content
-            vector_db = create_vector_db(extracted_texts)
-            st.session_state["custom_vector_db"] = vector_db  # Store for later searches
+            vector_db = create_vector_db(valid_texts)
+            if vector_db is None:
+                logging.error("❌ Failed to create vector database")
+                st.error("⚠️ Failed to create vector database. Please try again with different URLs.")
+                return
 
+            st.session_state["custom_vector_db"] = vector_db  # Store for later searches
             st.success("✅ Content extracted and stored successfully!")
 
     # Search query input
@@ -52,7 +71,16 @@ def custom_url_search():
     if query and "custom_vector_db" in st.session_state:
         with st.spinner("⏳ Searching..."):
             vector_db = st.session_state["custom_vector_db"]
+            if vector_db is None:
+                logging.error("❌ Vector database is None")
+                st.error("⚠️ No vector database available. Please extract content first.")
+                return
+
             retrieved_chunks = [doc.page_content for doc in vector_db.similarity_search(query, k=5)]
+            if not retrieved_chunks:
+                logging.warning("⚠️ No relevant chunks retrieved for query")
+                st.warning("⚠️ No relevant content found for your query.")
+                return
 
             # Get LLM response
             ai_response = query_llm(query, retrieved_chunks, model_name=st.session_state["selected_llm"])

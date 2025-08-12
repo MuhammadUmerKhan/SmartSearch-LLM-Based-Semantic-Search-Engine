@@ -1,9 +1,5 @@
 import streamlit as st
-from search.google_search import google_custom_search
-from search.scraper import extract_full_article
-from vector_db.vector_store import create_vector_db
-from utils.utils import query_llm
-from app_pages import instruction, home, custom_urls, search_engine, doc_chat
+from app_pages import home, custom_urls, search_engine, doc_chat
 
 # 🎨 Set Streamlit page configuration
 st.set_page_config(page_title="AI Search Engine", page_icon="🔍", layout="wide")
@@ -11,9 +7,10 @@ st.set_page_config(page_title="AI Search Engine", page_icon="🔍", layout="wide
 available_llms = {
     "Llama 3": "llama-3.3-70b-versatile",
     "Gemma": "gemma2-9b-it",
-    "Qwen": "qwen-qwq-32b",
-    "DeepSeek": "deepseek-r1-distill-llama-70b",
-    "Llama 4": "meta-llama/llama-4-scout-17b-16e-instruct"
+    "Qwen": "qwen/qwen3-32b",
+    "Llama 4": "meta-llama/llama-4-scout-17b-16e-instruct",
+    "GPT OSS 120B": "openai/gpt-oss-120b",
+    "GPT OSS 20B": "openai/gpt-oss-20b"
 }
 
 # 🌟 **Sidebar: Select LLM**

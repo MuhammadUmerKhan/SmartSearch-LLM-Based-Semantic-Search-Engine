@@ -3,9 +3,11 @@ langchain
 newspaper3k 
 google-api-python-client 
 lxml-html-clean 
-langchain_groq
+langchain-groq
 python-dotenv
 langchain-community
 sentence-transformers
 pypdf
 streamlit
+faiss-cpu
+validators

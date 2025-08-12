@@ -1,5 +1,5 @@
 from googleapiclient.discovery import build
-from config.config import GOOGLE_SEARCH_KEY, SEARCH_ENGINE_ID, TOP_K_RESULTS
+from scripts.config import GOOGLE_SEARCH_KEY, SEARCH_ENGINE_ID, TOP_K_RESULTS
 import logging
 import functools
 
