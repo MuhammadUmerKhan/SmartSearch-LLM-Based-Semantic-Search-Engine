@@ -26,17 +26,11 @@ AI_Search_Engine/
 ├── notebook/
 │   ├── AI_Powered_Search_Engine.ipynb  # 📚 Jupyter Notebook for Experimentation
 │
-├── config/
+├── scripts/
 │   ├── config.py              # ⚙️ API Keys & Global Configurations
-│
-├── search/
 │   ├── google_search.py       # 🔍 Google Search API Handling
 │   ├── scraper.py             # 📄 Web Scraping & Article Extraction
-│
-├── vector_store/
 │   ├── vector_store.py        # 📚 FAISS Vector Database Handling
-│
-├── llm/
 │   ├── llm_handler.py         # 🤖 LLM Query Processing
 │
 ├── pp_pages/
@@ -48,7 +42,7 @@ AI_Search_Engine/
 │
 ├── requirements.txt           # 📦 Dependencies for the Project
 │
-├── .env                       # Stores API keys (Not shared for security)
+├── .env.example               # Stores API keys (Not shared for security)
 │
 └── README.md                  # 📖 Project Documentation & Setup Guide
 ```
@@ -106,8 +100,9 @@ AI_Search_Engine/
 |--------|-------------------------------|
 | Llama | `llama-3.3-70b-versatile` |
 | Gemma | `gemma2-9b-it` |
-| Qwen | `qwen-qwq-32b` |
-| DeepSeek | `deepseek-r1-distill-qwen-32b` |
+| Qwen | `qwen/qwen3-32b` |
+| GPT OSS 120B | `openai/gpt-oss-120b` |
+| GPT OSS 20B | `openai/gpt-oss-20b` |
 | Llama 4 | `meta-llama/llama-4-scout-17b-16e-instruct` |
 
 ---
