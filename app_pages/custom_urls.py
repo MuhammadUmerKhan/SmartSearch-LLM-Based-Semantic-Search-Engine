@@ -24,6 +24,7 @@ def split_urls(input_text):
     return url_pattern.findall(input_text)
 
 def custom_url_search():
+    st.markdown('<div class="section-title">🔗 Custom URL Search</div>', unsafe_allow_html=True)
     custom_instruct()
 
     # Text area to allow users to enter multiple URLs
@@ -83,16 +84,12 @@ def custom_url_search():
                 return
 
             # Get LLM response
-            ai_response = query_llm(query, retrieved_chunks, model_name=st.session_state["selected_llm"])
+            ai_response = query_llm(query, retrieved_chunks, model_name=st.session_state["llm_model"])
             formatted_response = ai_response.content.replace("**", "<b>").replace("**", "</b>")
 
-            st.markdown("<h3 style='color: #ff4d4d;'>📌 AI-Powered Answer:</h3>", unsafe_allow_html=True)
+            st.markdown('<h3 class="section-title">📌 AI-Powered Answer:</h3>', unsafe_allow_html=True)
             st.markdown(f"""
-                <div style="
-                    padding: 15px;
-                    border-radius: 10px;
-                    margin-bottom: 20px;
-                    border-left: 5px solid #ff4d4d;">
-                    <p style="font-size: 18px;">{formatted_response}</p>
+                <div class="source-card">
+                    <p class="content">{formatted_response}</p>
                 </div>
             """, unsafe_allow_html=True)

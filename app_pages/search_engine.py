@@ -10,7 +10,7 @@ import logging
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 
 def search_engine():
-    # 🎯 **Navigation Instructions**
+    st.markdown('<div class="section-title">🔍 Search Engine</div>', unsafe_allow_html=True)
     search_instruct()
 
     # ⌨️ Real-Time Search Input (Press Enter to Search)
@@ -54,33 +54,24 @@ def search_engine():
                     return
 
                 # 🤖 Get LLM response
-                ai_response = query_llm(query, retrieved_chunks, model_name=st.session_state["selected_llm"])
+                ai_response = query_llm(query, retrieved_chunks, model_name=st.session_state["llm_model"])
                 formatted_response = ai_response.content.replace("**", "<b>").replace("**", "</b>")
 
-                st.markdown("<h3 style='color: #ff4d4d;'>📌 AI-Powered Answer:</h3>", unsafe_allow_html=True)
+                st.markdown('<h3 class="section-title">📌 AI-Powered Answer:</h3>', unsafe_allow_html=True)
                 st.markdown(f"""
-                    <div style="
-                        padding: 15px;
-                        border-radius: 10px;
-                        margin-bottom: 20px;
-                        border-left: 5px solid #ff4d4d;">
-                        <p style="font-size: 18px;">{formatted_response}</p>
+                    <div class="source-card">
+                        <p class="content">{formatted_response}</p>
                     </div>
                 """, unsafe_allow_html=True)
 
                 # 🔗 Show Sources in Beautiful Cards
-                st.markdown("<h3 style='color: #ff4d4d;'>🔗 Sources:</h3>", unsafe_allow_html=True)
+                st.markdown('<h3 class="section-title">🔗 Sources:</h3>', unsafe_allow_html=True)
                 for result in search_results:
                     st.markdown(f"""
-                        <div style="
-                            padding: 12px;
-                            border-radius: 8px;
-                            margin-bottom: 10px;
-                            border-left: 5px solid #ff4d4d;
-                            ">
-                            <b>🔹 {result['title']}</b><br>
+                        <div class="source-card">
+                            <b class="highlight">🔹 {result['title']}</b><br>
                             <a href="{result['link']}" target="_blank">{result['link']}</a><br>
-                            <i>{result['snippet']}</i>
+                            <i class="content">{result['snippet']}</i>
                         </div>
                     """, unsafe_allow_html=True)
 
