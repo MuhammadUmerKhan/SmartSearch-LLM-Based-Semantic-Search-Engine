@@ -224,7 +224,7 @@ selected_llm = st.sidebar.selectbox("🤖 **Select an LLM Model**", list(availab
 st.session_state["llm_model"] = available_llms[selected_llm]
 
 # 🏠 Sidebar Navigation
-st.sidebar.markdown('<div class="main-title">🔍 AI Search Engine</div>', unsafe_allow_html=True)
+st.sidebar.markdown('<div class="main-title"><h1>🔍 AI Search Engine</h1></div>', unsafe_allow_html=True)
 page = st.sidebar.radio("📌 **Select Page**", ["🏠 Home", "🔍 Search Engine", "🔗 Custom URL Search", "📄 Chat with Documents"])
 
 # 🎯 Load Home Page
@@ -234,19 +234,17 @@ if page == "🏠 Home":
     st.markdown('</div>', unsafe_allow_html=True)
 # 🔍 Load Search Engine
 elif page == "🔍 Search Engine":
-    st.sidebar.markdown('<div class="section-title">🕵 Search Page</div>', unsafe_allow_html=True)
+    st.sidebar.markdown('<div class="section-title"><h3>🕵 Search Page</h3></div>', unsafe_allow_html=True)
     st.markdown('<div class="main-container">', unsafe_allow_html=True)
     search_engine.search_engine()
     st.markdown('</div>', unsafe_allow_html=True)
 # 🔗 Load Custom URL Search
 elif page == "🔗 Custom URL Search":
-    st.sidebar.markdown('<div class="section-title">🔗 Custom Search Engine</div>', unsafe_allow_html=True)
+    st.sidebar.markdown('<div class="section-title"><h3>🔗 Custom Search Engine</h3></div>', unsafe_allow_html=True)
     st.markdown('<div class="main-container">', unsafe_allow_html=True)
     custom_urls.custom_url_search()
     st.markdown('</div>', unsafe_allow_html=True)
 elif page == "📄 Chat with Documents":
-    st.sidebar.markdown('<div class="section-title">📄 Document Chatbot</div>', unsafe_allow_html=True)
-    st.markdown('<div class="main-container">', unsafe_allow_html=True)
     doc_chat.CustomDocChatbot()
     st.markdown('</div>', unsafe_allow_html=True)
 

@@ -11,3 +11,4 @@ pypdf
 streamlit
 faiss-cpu
 validators
+PyPDF2
