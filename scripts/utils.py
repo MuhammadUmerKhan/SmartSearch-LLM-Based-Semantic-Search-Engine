@@ -1,7 +1,7 @@
 from langchain_groq import ChatGroq
 import streamlit as st
 from sentence_transformers import SentenceTransformer
-from langchain.embeddings import HuggingFaceEmbeddings
+from langchain_community.embeddings import HuggingFaceEmbeddings
 from scripts.config import GROQ_API_KEY
 import logging
 
