@@ -5,7 +5,7 @@ def search_instruct():
     st.markdown('<h1 class="main-title">🔍 AI-Powered Search Engine with LLMs 🤖</h1>', unsafe_allow_html=True)
     
     # 🎯 **Navigation Instructions**
-    with st.expander("💬 **README** ⬇️"):
+    with st.expander("💬 **README:** ⬇️",):
         st.markdown('<h1 class="intro-title">🔍 AI-Powered Search Engine with LLMs 🤖</h1>', unsafe_allow_html=True)
         st.markdown('<h2 class="section-title">💡 Example Queries</h2>', unsafe_allow_html=True)
         st.markdown("""

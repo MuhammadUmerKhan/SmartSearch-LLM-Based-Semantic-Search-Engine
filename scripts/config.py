@@ -13,6 +13,7 @@ try:
     GOOGLE_SEARCH_KEY = os.getenv("GOOGLE_SEARCH_API_KEY")
     SEARCH_ENGINE_ID = os.getenv("SEARCH_ENGINE_ID")
     GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+    CSS_FILE_PATH = os.getenv("CSS_FILE_PATH", "./static/styles.css")
 except:
     logging.error("❌ API KEYS not found or not set.")
 
