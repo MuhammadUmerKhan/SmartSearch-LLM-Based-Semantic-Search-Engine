@@ -1,8 +1,7 @@
 from langchain_groq import ChatGroq
 import streamlit as st
-from sentence_transformers import SentenceTransformer
-from langchain_community.embeddings import HuggingFaceEmbeddings
-from scripts.config import GROQ_API_KEY
+from langchain_huggingface import HuggingFaceEmbeddings
+from scripts.config import GROQ_API_KEY, EMBEDDING_MODEL
 import logging
 
 # Logging configuration
@@ -53,28 +52,6 @@ def query_llm(query, retrieved_chunks, model_name):
         logging.info("✅ LLM Response Generated Successfully.")
         return response
 
-    except Exception as e:
-        logging.error(f"❌ LLM Query Error: {str(e)}")
-        return "❌ Error generating LLM response."
-
-
-def configure_llm(model_name):
-    """
-    Configure LLM to run on Hugging Face Inference API (Cloud-Based).
-    
-    Returns:
-        llm (LangChain LLM object): Configured model instance.
-    """
-
-    # Sidebar to select LLM
-    try:
-        logging.info(f"🤖 Querying LLM: {model_name}")
-        llm = ChatGroq(
-            temperature=0,
-            groq_api_key=GROQ_API_KEY,
-            model_name=model_name
-        )
-        return llm
     except Exception as e:
         logging.error(f"❌ LLM Query Error: {str(e)}")
         return "❌ Error generating LLM response."
@@ -136,16 +113,6 @@ def print_qa(cls, question, answer):
     log_str = f"\nUsecase: {cls.__name__}\nQuestion: {question}\nAnswer: {answer}\n" + "-" * 50
     logging.info(log_str)  # Log the interaction using Streamlit's logger
 
-@st.cache_resource  # Cache the embedding model to avoid reloading it every time
-def configure_embedding_model():
-    """
-    Configures and caches the embedding model.
-
-    Returns:
-        embedding_model (FastEmbedEmbeddings): The loaded embedding model.
-    """
-    return SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")  # Load and return the embedding model
-
 @st.cache_resource
 def configure_vector_embeddings():
     """
@@ -154,7 +121,11 @@ def configure_vector_embeddings():
     Returns:
         vector_embeddings (HuggingFaceEmbeddings): The loaded vector embeddings.
     """
-    return HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")  # Load and return the vector embeddings
+    return HuggingFaceEmbeddings(
+                model_name=EMBEDDING_MODEL,
+                model_kwargs={"device": "cpu"},
+                encode_kwargs={"normalize_embeddings": True}
+            )  # Load and return the vector embeddings
 
 def sync_st_session():
     """

@@ -8,7 +8,7 @@
   - `enable_chat_history(func)`: A decorator to persist chat history in Streamlit’s session state, ensuring seamless user interactions.
   - `display_msg(msg, author)`: Displays chat messages in the Streamlit UI and stores them in session state.
   - `print_qa(cls, question, answer)`: Logs Q&A interactions for debugging.
-  - `configure_embedding_model()`: Loads and caches the `sentence-transformers/all-MiniLM-L6-v2` model for generating text embeddings.
+  - `configure_embedding_model()`: Loads and caches the `BAAI/bge-small-en-v1.5` model for generating text embeddings.
   - `configure_vector_embeddings()`: Configures HuggingFace embeddings for vector store creation.
   - `sync_st_session()`: Synchronizes Streamlit session state values.
 - **Dependencies**: `langchain_groq`, `streamlit`, `sentence_transformers`, `logging`.

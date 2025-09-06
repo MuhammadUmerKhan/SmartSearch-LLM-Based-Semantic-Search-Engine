@@ -4,7 +4,9 @@ from scripts.scraper import extract_full_article
 from scripts.vector_store import create_vector_db
 from scripts.utils import query_llm
 from app_pages.instruction import search_instruct
-import logging
+import logging, warnings
+
+warnings.filterwarnings("ignore")
 
 # Logging configuration
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")

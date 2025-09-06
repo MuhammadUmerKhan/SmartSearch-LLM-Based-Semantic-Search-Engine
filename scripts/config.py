@@ -14,6 +14,7 @@ try:
     SEARCH_ENGINE_ID = os.getenv("SEARCH_ENGINE_ID")
     GROQ_API_KEY = os.getenv("GROQ_API_KEY")
     CSS_FILE_PATH = os.getenv("CSS_FILE_PATH", "./static/styles.css")
+    EMBEDDING_MODEL = os.getenv("EMBEDDING_MODEL", "BAAI/bge-small-en-v1.5")
 except:
     logging.error("❌ API KEYS not found or not set.")
 

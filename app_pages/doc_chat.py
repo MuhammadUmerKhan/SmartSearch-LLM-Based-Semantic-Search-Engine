@@ -4,7 +4,9 @@ from scripts.vector_store import create_vector_db
 from scripts.utils import query_llm, enable_chat_history, display_msg
 from scripts.config import CHUNK_SIZE, CHUNK_OVERLAP
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-import logging
+import logging, warnings
+
+warnings.filterwarnings("ignore")
 
 # Logging configuration
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")

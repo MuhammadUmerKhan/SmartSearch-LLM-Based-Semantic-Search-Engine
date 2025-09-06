@@ -1,10 +1,11 @@
 import streamlit as st
-import re
+import re, logging, warnings
 from scripts.scraper import extract_full_article
 from scripts.vector_store import create_vector_db
 from scripts.utils import query_llm
 from app_pages.instruction import custom_instruct
-import logging
+
+warnings.filterwarnings("ignore")
 
 # Logging configuration
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
